@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy 21st, Lexa Oktavia R.</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@300;400;500;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0d0d12;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+/* OPENING */
+
+#opening {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background:
+        radial-gradient(circle at 50% 35%, rgba(255,255,255,.08), transparent 35%),
+        #0d0d12;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: 1s ease;
+}
+
+.opening-content {
+    padding: 30px;
+    animation: fadeUp 1.5s ease;
+}
+
+.small-title {
+    font-size: 11px;
+    letter-spacing: 5px;
+    opacity: .65;
+    margin-bottom: 25px;
+}
+
+.opening-content h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(42px, 12vw, 78px);
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 18px;
+}
+
+.opening-content p {
+    font-size: 13px;
+    opacity: .65;
+    line-height: 1.8;
+    max-width: 330px;
+    margin: auto;
+}
+
+.open-btn {
+    margin-top: 35px;
+    padding: 14px 32px;
+    border: 1px solid rgba(255,255,255,.45);
+    border-radius: 100px;
+    background: transparent;
+    color: white;
+    font-family: inherit;
+    letter-spacing: 2px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: .35s;
+}
+
+.open-btn:hover {
+    background: white;
+    color: #111;
+    transform: scale(1.05);
+}
+
+.opened {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* MAIN */
+
+#main {
+    opacity: 0;
+    transition: 1.5s ease;
+}
+
+#main.show {
+    opacity: 1;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 40px 20px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.date {
+    font-size: 11px;
+    letter-spacing: 4px;
+    opacity: .55;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(55px, 16vw, 110px);
+    font-weight: 400;
+    line-height: .9;
+}
+
+.hero h1 span {
+    display: block;
+    font-style: italic;
+}
+
+.hero-sub {
+    margin-top: 30px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    opacity: .55;
+}
+
+.scroll {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 9px;
+    letter-spacing: 3px;
+    opacity: .4;
+}
+
+/* GLOW */
+
+.glow {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.045);
+    filter: blur(50px);
+    animation: floatGlow 6s infinite alternate ease-in-out;
+}
+
+@keyframes floatGlow {
+    from {
+        transform: translate(-80px,-40px);
+    }
+    to {
+        transform: translate(80px,50px);
+    }
+}
+
+/* PHOTO SECTION */
+
+.gallery {
+    padding: 80px 18px;
+    max-width: 1050px;
+    margin: auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-title small {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 4px;
+    opacity: .4;
+    margin-bottom: 15px;
+}
+
+.section-title h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.photo-grid {
+    display:flex;
+    flex-direction:column;
+    gap:35px;
+    max-width:500px;
+    margin:0 auto;
+}
+
+.photo {
+    overflow: hidden;
+    border-radius: 14px;
+    position: relative;
+    background: #111;
+    aspect-ratio: 3 / 4;
+}
+
+.photo img {
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
+   display: block;
+}
+
+.photo-caption {
+    position: absolute;
+    z-index: 3;
+
+    font-family: 'TC OCTOBER', sans-serif;
+    font-size: clamp(20px, 5.5vw, 32px);
+    font-weight: 700;
+    line-height: 1.1;
+
+    text-align: center;
+    max-width: 85%;
+
+    text-shadow:
+      0 0 2px #111,
+      0 0 5px #111,
+      0 0 10px #111,
+      0 0 16px rgba(0, 0, 0, 0.75);
+
+    /* sedikit efek seperti tulisan manual */
+    filter: saturate(.9);
+}
+  
+  /* PHOTO 1 */
+.photo:nth-child(1) .photo-caption {
+    top: 8%;
+    left: 6%;
+    color: #fff;
+    transform: rotate(-5deg);
+}
+
+/* PHOTO 2 */
+.photo:nth-child(2) .photo-caption {
+    bottom: 8%;
+    right: 5%;
+    color: #fff;
+    transform: rotate(3deg);
+}
+
+/* PHOTO 3 */
+.photo:nth-child(3) .photo-caption {
+    top: 10%;
+    right: 5%;
+    color: #fff;
+    transform: rotate(5deg);
+}
+
+/* PHOTO 4 */
+.photo:nth-child(4) .photo-caption {
+    bottom: 12%;
+    left: 7%;
+    color: #fff;
+    transform: rotate(-3deg);
+}
+
+/* PHOTO 5 */
+.photo:nth-child(5) .photo-caption {
+    top: 45%;
+    left: 50%;
+    color: #fff;
+    transform: translate(-50%, -50%) rotate(-4deg);
+}
+
+/* PHOTO 6 */
+.photo:nth-child(6) .photo-caption {
+    bottom: 8%;
+    right: 8%;
+    color: #fff;
+    transform: rotate(4deg);
+}
+
+/* PHOTO 7 */
+.photo:nth-child(7) .photo-caption {
+    bottom: 7%;
+    left: 50%;
+    color: #fff;
+    transform: translateX(-50%) rotate(-2deg);
+}
+
+/* PHOTO 8 */
+.photo:nth-child(8) .photo-caption {
+    top: 12%;
+    right: 6%;
+    color: #fff;
+    transform: rotate(-6deg);
+}
+
+/* PHOTO 9 */
+.photo:nth-child(9) .photo-caption {
+    bottom: 10%;
+    right: 5%;
+    color: #fff;
+    transform: rotate(4deg);
+}
+
+/* PHOTO 10 */
+.photo:nth-child(10) .photo-caption {
+    top: 8%;
+    left: 5%;
+    color: #fff;
+    transform: rotate(-4deg);
+}
+
+/* PHOTO 11 */
+.photo:nth-child(11) .photo-caption {
+    top: 48%;
+    left: 50%;
+    color: #fff;
+    transform: translate(-50%, -50%) rotate(3deg);
+}
+
+/* PHOTO 12 */
+.photo:nth-child(12) .photo-caption {
+    bottom: 8%;
+    left: 50%;
+    color: #fff;
+    transform: translateX(-50%) rotate(-3deg);
+  }
+
+.photo:hover img {
+    transform:none;
+}
+
+/* MESSAGE */
+
+.message {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 25px;
+    text-align: center;
+}
+
+.message-box {
+    max-width: 650px;
+}
+
+.message-box .label {
+    font-size: 9px;
+    letter-spacing: 4px;
+    opacity: .4;
+    margin-bottom: 30px;
+}
+
+.message-box h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(38px, 10vw, 65px);
+    font-weight: 400;
+    margin-bottom: 35px;
+}
+
+.message-box p {
+    font-size: 14px;
+    line-height: 2;
+    opacity: .72;
+    margin-bottom: 20px;
+}
+
+.signature {
+    margin-top: 40px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    font-style: italic;
+}
+
+/* FINAL */
+
+.final {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 50px 25px;
+    position: relative;
+}
+
+.final-content h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(45px, 12vw, 90px);
+    font-weight: 400;
+    line-height: 1;
+}
+
+.final-content p {
+    margin-top: 30px;
+    line-height: 2;
+    opacity: .6;
+    font-size: 13px;
+}
+
+.final-date {
+    margin-top: 45px;
+    font-size: 9px;
+    letter-spacing: 5px;
+    opacity: .35;
+}
+
+/* MUSIC BUTTON */
+
+.music-btn {
+    position: fixed;
+    z-index: 900;
+    right: 18px;
+    bottom: 18px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.3);
+    background: rgba(15,15,20,.7);
+    backdrop-filter: blur(10px);
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    display: none;
+}
+
+.music-btn.active {
+    display: block;
+}
+
+.music-btn.playing {
+    animation: musicPulse 1.5s infinite;
+}
+
+@keyframes musicPulse {
+    50% {
+        box-shadow: 0 0 0 8px rgba(255,255,255,.04);
+    }
+}
+
+/* CONFETTI */
+
+.confetti {
+    position: fixed;
+    top: -20px;
+    width: 8px;
+    height: 12px;
+    z-index: 2000;
+    pointer-events: none;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* FADE */
+
+.fade-item {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: 1s ease;
+}
+
+.fade-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .photo-grid {
+        gap: 9px;
+    }
+
+    .gallery {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .message-box p {
+        font-size: 13px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- OPENING -->
+
+<section id="opening">
+
+    <div class="opening-content">
+
+        <div class="small-title">
+            A LITTLE SOMETHING FOR YOU
+        </div>
+
+        <h1>
+            For My Best Friend
+        </h1>
+
+        <p>
+            Because someone as special as you deserves
+            a little birthday surprise.
+        </p>
+
+        <button class="open-btn" onclick="openBirthday()">
+            OPEN
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- MAIN -->
+
+<main id="main">
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="glow"></div>
+
+        <div class="hero-content">
+
+            <div class="date">
+                OCTOBER 05, 2026
+            </div>
+
+            <h1>
+                HAPPY
+                <span>21ST, LEXA OKTAVIA RAMADHANI</span>
+            </h1>
+
+            <div class="hero-sub">
+                ANOTHER CHAPTER BEGINS
+            </div>
+
+        </div>
+
+        <div class="scroll">
+            SCROLL DOWN
+        </div>
+
+    </section>
+
+
+    <!-- GALLERY -->
+
+    <section class="gallery">
+
+        <div class="section-title fade-item">
+
+            <small>
+                LITTLE MOMENTS
+            </small>
+
+            <h2>
+                Memories worth keeping.
+            </h2>
+
+        </div>
+
+
+        <div class="photo-grid">
+
+<div class="photo fade-item">
+    <img src="photo6.jpg">
+    <div class="photo-caption">If you ever find yourself stuck in the middle of the sea</div>
+</div>
+
+<div class="photo fade-item">
+    <img src="photo1.jpg">
+    <div class="photo-caption">I'll sail the world to find you</div>
+</div>
+
+<div class="photo fade-item">
+    <img src="photo14.jpg">
+    <div class="photo-caption">If you ever find yourself lost in the dark</div>
+</div>
+
+<div class="photo fade-item">
+    <img src="photo15.jpg">
+    <div class="photo-caption">And you can't see</div>
+</div>
+
+<div class="photo fade-item">
+    <img src="photo5.jpg">
+    <div class="photo-caption">I'll be the light to guide you</div>
+</div>
+
+<div class="photo fade-item">
+    <img src="photo12.jpg">
+    <div class="photo-caption">We find out what we're made of</div>
+</div>
+
+<div class="photo fade-item">
+    <img src="photo4.jpg">
+    <div class="photo-caption">When we are called to help our friends in need</div>
+</div>
+
+<div class="photo fade-item">
+    <img src="photo13.jpg">
+    <div class="photo-caption">You can count on me</div>
+</div>
+
+<div class="photo fade-item">
+    <img src="photo11.jpg">
+    <div class="photo-caption">Like 1, 2, 3, I'll be there</div>
+</div>
+
+<div class="photo fade-item">
+    <img src="photo9.jpg">
+    <div class="photo-caption">And I know when I need it, I can count on you</div>
+</div>
+
+<div class="photo fade-item">
+    <img src="photo8.jpg">
+    <div class="photo-caption">Like 4, 3, 2, and you'll be there</div>
+</div>
+
+<div class="photo fade-item">
+    <img src="photo7.jpg">
+    <div class="photo-caption">'Cause that's what friends are supposed to do, oh, yeah</div>
+</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MESSAGE -->
+
+    <section class="message">
+
+        <div class="message-box fade-item">
+
+            <div class="label">
+                A MESSAGE FOR YOU
+            </div>
+
+            <h2>
+                Dear Cebong,
+            </h2>
+
+            <p>
+                Finally, 21.
+            </p>
+
+            <p>
+                Another year, another bunch of stories,
+                random moments, stupid jokes, and memories
+                that somehow became things worth keeping.
+            </p>
+
+            <p>
+                I hope this new chapter brings you more
+                happiness, more reasons to laugh, more good
+                people around you, and plenty of moments
+                you'll look back on with a smile.
+            </p>
+
+            <p>
+                Keep being the annoying, funny, chaotic,
+                and wonderful Cebong that you are.
+            </p>
+
+            <p>
+                You deserve a year filled with good things.
+            </p>
+
+            <div class="signature">
+                Happy birthday, Lexa.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FINAL -->
+
+    <section class="final">
+
+        <div class="final-content fade-item">
+
+            <h2>
+                Here's to 21.
+            </h2>
+
+            <p>
+                To new memories.<br>
+                To unexpected adventures.<br>
+                To more reasons to smile.
+            </p>
+
+            <div class="final-date">
+                HAPPY BIRTHDAY, LEXA OKTAVIA RAMADHANI
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- MUSIC -->
+
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicButton" class="music-btn" onclick="toggleMusic()">
+    ♪
+</button>
+
+
+<script>
+
+/* OPEN WEBSITE */
+
+function openBirthday() {
+
+    const opening = document.getElementById("opening");
+    const main = document.getElementById("main");
+    const music = document.getElementById("music");
+    const musicButton = document.getElementById("musicButton");
+
+    opening.classList.add("opened");
+
+    setTimeout(() => {
+        main.classList.add("show");
+    }, 500);
+
+    musicButton.classList.add("active");
+
+    /*
+       Karena tombol OPEN merupakan interaksi user,
+       browser mengizinkan musik mulai dimainkan.
+    */
+
+    music.volume = 0.55;
+
+    music.play().then(() => {
+
+        musicButton.classList.add("playing");
+
+    }).catch(() => {
+
+        console.log("Music needs manual interaction.");
+
+    });
+
+    createConfetti(100);
+
+}
+
+
+/* MUSIC */
+
+function toggleMusic() {
+
+    const music = document.getElementById("music");
+    const button = document.getElementById("musicButton");
+
+    if (music.paused) {
+
+        music.play();
+
+        button.classList.add("playing");
+
+    } else {
+
+        music.pause();
+
+        button.classList.remove("playing");
+
+    }
+
+}
+
+
+/* CONFETTI */
+
+function createConfetti(amount) {
+
+    for (let i = 0; i < amount; i++) {
+
+        const confetti = document.createElement("div");
+
+        confetti.classList.add("confetti");
+
+        confetti.style.left =
+            Math.random() * 100 + "vw";
+
+        confetti.style.animationDuration =
+            (Math.random() * 3 + 2) + "s";
+
+        confetti.style.animationDelay =
+            Math.random() * 1.5 + "s";
+
+        confetti.style.transform =
+            "rotate(" + Math.random() * 360 + "deg)";
+
+        /*
+          Random pastel-ish appearance tanpa
+          menetapkan warna CSS global.
+        */
+
+        const colors = [
+            "#ffffff",
+            "#f5d7e8",
+            "#e8d8ff",
+            "#d7ecff",
+            "#ffe5c2",
+            "#d9f5e5"
+        ];
+
+        confetti.style.background =
+            colors[Math.floor(Math.random() * colors.length)];
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+            confetti.remove();
+        }, 6000);
+
+    }
+
+}
+
+
+/* SCROLL ANIMATION */
+
+const observer = new IntersectionObserver(
+
+    entries => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("visible");
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold: 0.15
+    }
+
+);
+
+
+document.querySelectorAll(".fade-item").forEach(item => {
+
+    observer.observe(item);
+
+});
+
+
+/* EXTRA CONFETTI WHEN REACHING FINAL */
+
+let finalConfettiDone = false;
+
+window.addEventListener("scroll", () => {
+
+    const finalSection =
+        document.querySelector(".final");
+
+    const rect =
+        finalSection.getBoundingClientRect();
+
+    if (
+        rect.top < window.innerHeight * 0.7 &&
+        !finalConfettiDone
+    ) {
+
+        finalConfettiDone = true;
+
+        createConfetti(80);
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
